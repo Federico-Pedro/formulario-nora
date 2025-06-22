@@ -117,11 +117,7 @@ form {
     border-radius: 20px;
 }
 
-/* .emociones h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-} */
+
 .emociones .form-group {
     border-radius: 15px;
 }
@@ -223,6 +219,7 @@ footer h4 {
     margin-top: 25px;
 }
 
+/* MEDIA QUERIES */
 
 @media (max-width: 1079px) {
 
