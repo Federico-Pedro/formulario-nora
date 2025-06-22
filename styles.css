@@ -294,6 +294,7 @@ footer h4 {
     .emociones .form-group input {
         margin-right: 5px;
         transform: scale(0.75);
+        font-size: 0.7rem;
         
 
     }
