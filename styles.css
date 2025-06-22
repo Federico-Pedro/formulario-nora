@@ -269,6 +269,7 @@ footer h4 {
     .datos-personales label {
         width: 100px;
         font-size: 1.2rem;
+        margin-bottom: 5px;
     }
 
     .emociones {
