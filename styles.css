@@ -274,12 +274,12 @@ footer h4 {
     }
 
     .emociones {
-        font-size: 1rem;
+        font-size: 0.7rem;
     }
 
     .emociones h3 {
 
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         font-weight: 100;
         margin-bottom: 25px;
     }
@@ -294,7 +294,7 @@ footer h4 {
     .emociones .form-group input {
         margin-right: 5px;
         transform: scale(0.75);
-        font-size: 0.7rem;
+        
         
 
     }
@@ -322,7 +322,7 @@ footer h4 {
 
     .salud .form-group input {
         margin-right: 20px;
-        transform: scale(1.2);
+        transform: scale(1);
         
     }
 
