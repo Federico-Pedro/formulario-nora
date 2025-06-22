@@ -7,7 +7,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: #3f4d46;
+    color: var(--oscuro);
 }
 
 *:focus {
@@ -74,7 +74,7 @@ form {
     /* border: 1px solid #3f4d46; */
     border-radius: 15px;
     margin-bottom: 15px;
-    background-color: #B6DBC9;
+    background-color: var(--claro);
 
     /* border: 1px red solid; */
 }
@@ -90,7 +90,7 @@ form {
     line-height: 30px;
     font-size: 1.5rem;
     border-radius: 8px;
-    border: 1px solid #3f4d46;
+    border: 1px solid var(--oscuro);
     /* background-color: #E0F1E9; */
     width: 15vw;
 }
@@ -111,7 +111,7 @@ form {
     padding: 25px;
     font-size: 1.5rem;
     /* font-weight: 500; */
-    background-color: #B6DBC9;
+    background-color: var(--claro);
     margin-bottom: 30px;
     border-radius: 20px;
 }
@@ -149,7 +149,7 @@ form {
 .emociones .form-group input {
     margin-right: 25px;
     transform: scale(1.3);
-    accent-color: #3f4d46;
+    accent-color: var(--oscuro);
 }
 
 .salud {
@@ -157,7 +157,7 @@ form {
     padding: 25px;
     font-size: 1.5rem;
     font-weight: 500;
-    background-color: #B6DBC9;
+    background-color: var(--claro);
     margin-bottom: 30px;
     border-radius: 20px;
 
@@ -177,7 +177,7 @@ form {
 .salud .form-group input {
     margin-right: 25px;
     transform: scale(1.3);
-    accent-color: #3f4d46;
+    accent-color: var(--oscuro);
 }
 
 .salud textarea {
@@ -191,8 +191,8 @@ form {
 }
 
 button {
-    background-color: #3f4d46;
-    color: #B6DBC9;
+    background-color: var(--oscuro);
+    color: var(--claro);
     font-size: 18px;
     font-weight: bold;
     width: 175px;
@@ -205,7 +205,7 @@ button {
 
 button:hover {
     color: #3f4d46;
-    background-color: #B6DBC9;
+    background-color: var(--claro);
 }
 
 .footer {
@@ -213,8 +213,8 @@ button:hover {
     display: flex;
     flex-direction: column;
     width: 80%;
-    color: #3f4d46;
-    border-top: 1px solid #3f4d46;
+    color: var(--oscuro);
+    border-top: 1px solid var(--oscuro);
 }
 
 footer h4 {
@@ -274,7 +274,7 @@ footer h4 {
     }
 
     .emociones label {
-        width: 100px;
+        width: 110px;
         margin-right: 5px;
     }
 
