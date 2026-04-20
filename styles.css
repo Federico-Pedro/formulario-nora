@@ -227,6 +227,9 @@ footer h4 {
     margin-top: 25px;
 }
 
+input[type=radio] {
+    cursor: pointer;
+}
 /* MEDIA QUERIES */
 
 @media (max-width: 1079px) {
