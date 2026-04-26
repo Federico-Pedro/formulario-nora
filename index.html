@@ -35,10 +35,10 @@
                     <input type="Text" id="apellido" name="Apellido" autocomplete="off" required>
                 </div>
 
-                <div class="form-group">
+                <div class="dateContainer">
 
-                    <label for="date">Fecha:</label>
-                    <input type="date" id="date" name="Fecha" lang="es" required />
+                    <label for="date" class="dateLabel">Fecha actual:</label>
+                    <input type="date" class="dateinput" id="date" name="Fecha" lang="es" required />
                 </div>
             </div>
             <div class="emociones">
@@ -223,33 +223,79 @@
 
 </body>
 <script>
-    const form = document.getElementById("miFormulario");
+  const STORAGE_KEY = "formulario-nora";
+  const form = document.getElementById("miFormulario");
 
-    form.addEventListener("submit", function (e) {
-        e.preventDefault(); // Evita el envío por defecto
+  // ─── 1. AL CARGAR: restaurar valores guardados ───────────────────────────
+  function restaurarFormulario() {
+    const guardado = localStorage.getItem(STORAGE_KEY);
+    if (!guardado) return;
 
-        const datos = new FormData(form);
+    const datos = JSON.parse(guardado);
 
-        fetch(form.action, {
-            method: form.method,
-            body: datos,
-            headers: {
-                'Accept': 'application/json'
-            }
-        })
-            .then(response => {
-                if (response.ok) {
-                    // ✅ Redirección forzada después del envío exitoso
-                    window.location.href = "https://cristaloterapia.netlify.app/gracias.html";
-                } else {
-                    alert("Algo salió mal al enviar el formulario.");
-                }
-            })
-            .catch(error => {
-                console.error("Error al enviar:", error);
-                alert("No se pudo enviar el formulario.");
-            });
-    });
+    for (const [name, value] of Object.entries(datos)) {
+      // Buscar inputs de texto, date y textarea
+      const campo = form.querySelector(`[name="${name}"]:not([type="radio"])`);
+      if (campo) {
+        campo.value = value;
+        continue;
+      }
+
+      // Buscar radio buttons
+      const radio = form.querySelector(`[name="${name}"][value="${value}"]`);
+      if (radio) {
+        radio.checked = true;
+      }
+    }
+  }
+
+  // ─── 2. AL CAMBIAR CUALQUIER CAMPO: guardar en localStorage ──────────────
+  function guardarFormulario() {
+    const datos = {};
+    const elementos = form.elements;
+
+    for (const el of elementos) {
+      if (!el.name) continue;
+
+      if (el.type === "radio") {
+        if (el.checked) datos[el.name] = el.value;
+      } else {
+        datos[el.name] = el.value;
+      }
+    }
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(datos));
+  }
+
+  // ─── 3. ENVÍO: fetch a Formspree y limpiar al éxito ──────────────────────
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const datos = new FormData(form);
+
+    fetch(form.action, {
+      method: form.method,
+      body: datos,
+      headers: { Accept: "application/json" },
+    })
+      .then((response) => {
+        if (response.ok) {
+          localStorage.removeItem(STORAGE_KEY); // ✅ limpiamos solo si salió bien
+          window.location.href = "https://cristaloterapia.netlify.app/gracias.html";
+        } else {
+          alert("Algo salió mal al enviar el formulario.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error al enviar:", error);
+        alert("No se pudo enviar el formulario.");
+      });
+  });
+
+  // ─── Inicialización ───────────────────────────────────────────────────────
+  restaurarFormulario();
+  form.addEventListener("input", guardarFormulario);   // textos y textareas
+  form.addEventListener("change", guardarFormulario);  // radios y date
 </script>
 
 </html>

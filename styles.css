@@ -64,20 +64,15 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* border: 1px red solid; */
-
-
 }
 
 .datos-personales {
     padding: 15px;
     width: 100%;
-    /* border: 1px solid #3f4d46; */
     border-radius: 15px;
     margin-bottom: 15px;
     background-color: var(--claro);
-
-    /* border: 1px red solid; */
+    
 }
 
 
@@ -99,13 +94,29 @@ form {
     font-size: 1.5rem;
     border-radius: 8px;
     border: 1px solid var(--oscuro);
-    /* background-color: #E0F1E9; */
     width: 15vw;
+}
+
+input[type="text"] {
+    padding: 5px;
 }
 
 .datos-personales input[type=date] {
     font-size: 1.2rem;
     text-align: center;
+}
+
+.dateContainer{
+    /* border: red 1px solid; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+.dateLabel {
+    width: fit-content !important;
+    margin-right: 25px;
+    /* border: solid 1px green; */
 }
 
 
@@ -118,7 +129,6 @@ form {
     width: 100%;
     padding: 25px;
     font-size: 1.5rem;
-    /* font-weight: 500; */
     background-color: var(--claro);
     margin-bottom: 30px;
     border-radius: 20px;
@@ -211,6 +221,7 @@ button {
 button:hover {
     color: #3f4d46;
     background-color: var(--claro);
+    cursor: pointer;
 }
 
 .footer {
@@ -279,6 +290,22 @@ input[type=radio] {
         width: 100px;
         font-size: 1.2rem;
         margin-bottom: 5px;
+    }
+
+    .dateContainer {
+        align-items: center;
+    }
+
+    .dateLabel {
+        margin: 5px;
+        min-width: fit-content;
+        /* border: 1px solid red; */
+    }
+
+    #date {
+        height: 1.6rem;
+        text-align: center;
+        margin: 5px;
     }
 
     .emociones {
